@@ -474,6 +474,7 @@ class App extends Component {
     }, () => {
       auth.signInWithEmailAndPassword(emailAddress, password).then((value) => {
         this.closeSignInDialog(() => {
+          if(!value.user){throw 'invalid';}
           const user = value.user;
           const displayName = user.displayName;
           const emailAddress = user.email;
@@ -523,6 +524,7 @@ class App extends Component {
       auth.signInWithPopup(provider).then((value) => {
         this.closeSignUpDialog(() => {
           this.closeSignInDialog(() => {
+            if(!value.user){throw 'invalid';}
             const user = value.user;
             const displayName = user.displayName;
             const emailAddress = user.email;
