@@ -8,3 +8,4 @@
 - !!! define and initialize 'state' by signing a liternal
   - noteiced using vairable before initiliazation
 - null handling
+- explicit type for un-inferred type

@@ -323,7 +323,7 @@ class App extends Component {
       isVerifyingEmailAddress: false,
       isSignedIn: false,
 
-      user: null,
+      user: null as firebase.User | null,
       avatar: '',
       displayName: '',
       emailAddress: '',
