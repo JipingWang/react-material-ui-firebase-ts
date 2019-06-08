@@ -9,3 +9,4 @@
   - noteiced using vairable before initiliazation
 - null handling
 - explicit type for un-inferred type
+- move state object out to use typeof

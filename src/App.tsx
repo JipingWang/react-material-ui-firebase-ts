@@ -307,87 +307,89 @@ const constraints = {
   },
 };
 
-class App extends Component {
+const state = {
+  primaryColor: defaultTheme.primaryColor,
+  secondaryColor: defaultTheme.secondaryColor,
+  type: defaultTheme.type,
+
+  isAuthReady: false,
+  isPerformingAuthAction: false,
+  isVerifyingEmailAddress: false,
+  isSignedIn: false,
+
+  user: null as firebase.User | null,
+  avatar: '',
+  displayName: '',
+  emailAddress: '',
+
+  signUpDialog: {
+    open: false
+  },
+
+  signInDialog: {
+    open: false
+  },
+
+  resetPasswordDialog: {
+    open: false
+  },
+
+  welcomeDialog: {
+    open: false
+  },
+
+  settingsDialog: {
+    open: false
+  },
+
+  addAvatarDialog: {
+    open: false,
+
+    errors: null
+  },
+
+  changeAvatarDialog: {
+    open: false,
+
+    errors: null
+  },
+
+  addDisplayNameDialog: {
+    open: false,
+
+    errors: null
+  },
+
+  changeDisplayNameDialog: {
+    open: false,
+
+    errors: null
+  },
+
+  addEmailAddressDialog: {
+    open: false,
+
+    errors: null
+  },
+
+  signOutDialog: {
+    open: false
+  },
+
+  snackbar: {
+    autoHideDuration: 0,
+    message: '',
+    open: false
+  }
+};
+
+class App extends Component<{}, typeof state> {
   _isMounted = false;
 
   constructor(props: Readonly<{}>) {
     super(props);
   }
-  state = {
-      primaryColor: defaultTheme.primaryColor,
-      secondaryColor: defaultTheme.secondaryColor,
-      type: defaultTheme.type,
 
-      isAuthReady: false,
-      isPerformingAuthAction: false,
-      isVerifyingEmailAddress: false,
-      isSignedIn: false,
-
-      user: null as firebase.User | null,
-      avatar: '',
-      displayName: '',
-      emailAddress: '',
-
-      signUpDialog: {
-        open: false
-      },
-
-      signInDialog: {
-        open: false
-      },
-
-      resetPasswordDialog: {
-        open: false
-      },
-
-      welcomeDialog: {
-        open: false
-      },
-
-      settingsDialog: {
-        open: false
-      },
-
-      addAvatarDialog: {
-        open: false,
-
-        errors: null
-      },
-
-      changeAvatarDialog: {
-        open: false,
-
-        errors: null
-      },
-
-      addDisplayNameDialog: {
-        open: false,
-
-        errors: null
-      },
-
-      changeDisplayNameDialog: {
-        open: false,
-
-        errors: null
-      },
-
-      addEmailAddressDialog: {
-        open: false,
-
-        errors: null
-      },
-
-      signOutDialog: {
-        open: false
-      },
-
-      snackbar: {
-        autoHideDuration: 0,
-        message: '',
-        open: false
-      }
-    };
   
 
   /**
