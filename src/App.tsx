@@ -312,8 +312,8 @@ class App extends Component {
 
   constructor(props: Readonly<{}>) {
     super(props);
-
-    this.state = {
+  }
+  state = {
       primaryColor: defaultTheme.primaryColor,
       secondaryColor: defaultTheme.secondaryColor,
       type: defaultTheme.type,
@@ -388,7 +388,7 @@ class App extends Component {
         open: false
       }
     };
-  }
+  
 
   /**
    * Creates a new user account associated with the specified email address and password.
