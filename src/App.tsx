@@ -30,7 +30,7 @@ import brown from '@material-ui/core/colors/brown';
 import gray from '@material-ui/core/colors/grey';
 import blueGray from '@material-ui/core/colors/blueGrey';
 
-import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
+import { createMuiTheme, MuiThemeProvider, Theme } from '@material-ui/core/styles';
 
 import Hidden from '@material-ui/core/Hidden';
 import TextField from '@material-ui/core/TextField';
@@ -50,6 +50,8 @@ import WelcomeDialog from './dialogs/WelcomeDialog';
 import SettingsDialog from './dialogs/SettingsDialog';
 import InputDialog from './dialogs/InputDialog';
 import ConfirmationDialog from './dialogs/ConfirmationDialog';
+import { PaletteOptions } from '@material-ui/core/styles/createPalette';
+import { PaletteType } from '@material-ui/core';
 
 /**
  * Firebase
@@ -182,7 +184,7 @@ const types = [
 const defaultTheme = {
   primaryColor: 'blue',
   secondaryColor: 'red',
-  type: 'light'
+  type: 'light' as PaletteType
 };
 
 let theme = createMuiTheme({
@@ -964,7 +966,7 @@ class App extends Component<{}, typeof state> {
    * @param removeLocalStorage
    * @param callback
    */
-  updateTheme = (palette: { primaryColor: string; secondaryColor: string; type: string | undefined; }, removeLocalStorage: any, callback: () => void) => {
+  updateTheme = (palette: typeof defaultTheme, removeLocalStorage: any, callback: () => void) => {
     const { primaryColor, secondaryColor, type } = this.state;
 
     if (!palette.primaryColor) {
