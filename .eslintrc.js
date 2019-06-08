@@ -39,6 +39,7 @@ module.exports = {
         "@typescript-eslint/explicit-member-accessibility": "off",
         "@typescript-eslint/no-use-before-define": "off",
         "@typescript-eslint/type-annotation-spacing": "off",
+        "@typescript-eslint/member-delimiter-style": "off",
 
         "react-hooks/rules-of-hooks": "error",
         "react-hooks/exhaustive-deps": "warn",
