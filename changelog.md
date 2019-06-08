@@ -3,4 +3,4 @@
 - follow offcial guide
 - yarn add typescript @types/node @types/react @types/react-dom @types/jest
 - change all ".js" extensions to ".ts" (git mv abc.js abc.ts)
-- 
+- close and re-open the project folder
