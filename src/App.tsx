@@ -310,7 +310,7 @@ const constraints = {
 class App extends Component {
   _isMounted = false;
 
-  constructor(props) {
+  constructor(props: Readonly<{}>) {
     super(props);
 
     this.state = {
@@ -396,7 +396,7 @@ class App extends Component {
    * @param password
    * @param passwordConfirmation
    */
-  signUp = (emailAddress, password, passwordConfirmation) => {
+  signUp = (emailAddress: string, password: string, passwordConfirmation: any) => {
     if (this.state.isSignedIn) {
       return;
     }
@@ -451,7 +451,7 @@ class App extends Component {
    * @param emailAddress
    * @param password
    */
-  signIn = (emailAddress, password) => {
+  signIn = (emailAddress: string, password: string) => {
     if (this.state.isSignedIn) {
       return;
     }
@@ -508,7 +508,7 @@ class App extends Component {
    * Authenticates a Firebase client using a popup-based OAuth authentication flow.
    * @param provider
    */
-  signInWithProvider = (provider) => {
+  signInWithProvider = (provider: firebase.auth.AuthProvider) => {
     if (this.state.isSignedIn) {
       return;
     }
@@ -562,7 +562,7 @@ class App extends Component {
    * Sends a password reset email to the given email address.
    * @param emailAddress
    */
-  resetPassword = (emailAddress) => {
+  resetPassword = (emailAddress: string) => {
     if (this.state.isSignedIn) {
       return;
     }
@@ -647,7 +647,7 @@ class App extends Component {
         this.closeAddAvatarDialog(() => {
           this.openSnackbar('Avatar added');
         });
-      }).catch((reason) => {
+      }).catch((reason: { code: any; message: any; }) => {
         const code = reason.code;
         const message = reason.message;
 
@@ -700,7 +700,7 @@ class App extends Component {
         this.closeChangeAvatarDialog(() => {
           this.openSnackbar('Avatar changed');
         });
-      }).catch((reason) => {
+      }).catch((reason: { code: any; message: any; }) => {
         const code = reason.code;
         const message = reason.message;
 
@@ -751,7 +751,7 @@ class App extends Component {
         this.closeAddDisplayNameDialog(() => {
           this.openSnackbar('Display name added');
         });
-      }).catch((reason) => {
+      }).catch((reason: { code: any; message: any; }) => {
         const code = reason.code;
         const message = reason.message;
 
@@ -804,7 +804,7 @@ class App extends Component {
         this.closeChangeDisplayNameDialog(() => {
           this.openSnackbar('Display name changed');
         });
-      }).catch((reason) => {
+      }).catch((reason: { code: any; message: any; }) => {
         const code = reason.code;
         const message = reason.message;
 
@@ -855,7 +855,7 @@ class App extends Component {
         this.closeAddEmailAddressDialog(() => {
           this.openSnackbar('E-mail address added');
         });
-      }).catch((reason) => {
+      }).catch((reason: { code: any; message: any; }) => {
         const code = reason.code;
         const message = reason.message;
 
@@ -875,7 +875,7 @@ class App extends Component {
   /**
    * Sends a verification email to a user.
    */
-  verifyEmailAddress = (callback) => {
+  verifyEmailAddress = (callback: () => void) => {
     const { user, isSignedIn } = this.state;
 
     if (!user || !user.email || !isSignedIn) {
@@ -897,7 +897,7 @@ class App extends Component {
             callback();
           }
         });
-      }).catch((reason) => {
+      }).catch((reason: { code: any; message: any; }) => {
         const code = reason.code;
         const message = reason.message;
 
@@ -960,7 +960,7 @@ class App extends Component {
    * @param removeLocalStorage
    * @param callback
    */
-  updateTheme = (palette, removeLocalStorage, callback) => {
+  updateTheme = (palette: { primaryColor: string; secondaryColor: string; type: string | undefined; }, removeLocalStorage: any, callback: () => void) => {
     const { primaryColor, secondaryColor, type } = this.state;
 
     if (!palette.primaryColor) {
@@ -1017,7 +1017,7 @@ class App extends Component {
     });
   };
 
-  changePrimaryColor = (event) => {
+  changePrimaryColor = (event: { target: { value: any; }; }) => {
     const primaryColor = event.target.value;
 
     this.updateTheme({
@@ -1025,7 +1025,7 @@ class App extends Component {
     });
   };
 
-  changeSecondaryColor = (event) => {
+  changeSecondaryColor = (event: { target: { value: any; }; }) => {
     const secondaryColor = event.target.value;
 
     this.updateTheme({
@@ -1033,7 +1033,7 @@ class App extends Component {
     });
   };
 
-  changeType = (event) => {
+  changeType = (event: { target: { value: any; }; }) => {
     const type = event.target.value;
 
     this.updateTheme({
@@ -1049,7 +1049,7 @@ class App extends Component {
     });
   };
 
-  closeSignUpDialog = (callback) => {
+  closeSignUpDialog = (callback: () => void) => {
     this.setState({
       signUpDialog: {
         open: false
@@ -1069,7 +1069,7 @@ class App extends Component {
     });
   };
 
-  closeSignInDialog = (callback) => {
+  closeSignInDialog = (callback: () => void) => {
     this.setState({
       signInDialog: {
         open: false
@@ -1089,7 +1089,7 @@ class App extends Component {
     });
   };
 
-  closeResetPasswordDialog = (callback) => {
+  closeResetPasswordDialog = (callback: () => void) => {
     this.setState({
       resetPasswordDialog: {
         open: false
@@ -1109,7 +1109,7 @@ class App extends Component {
     });
   };
 
-  closeWelcomeDialog = (callback) => {
+  closeWelcomeDialog = (callback: () => void) => {
     this.setState({
       welcomeDialog: {
         open: false
@@ -1129,7 +1129,7 @@ class App extends Component {
     });
   };
 
-  closeSettingsDialog = (callback) => {
+  closeSettingsDialog = (callback: () => void) => {
     this.setState({
       settingsDialog: {
         open: false
@@ -1149,7 +1149,7 @@ class App extends Component {
     });
   };
 
-  closeAddAvatarDialog = (callback) => {
+  closeAddAvatarDialog = (callback: () => void) => {
     this.setState({
       addAvatarDialog: {
         open: false
@@ -1169,7 +1169,7 @@ class App extends Component {
     });
   };
 
-  closeChangeAvatarDialog = (callback) => {
+  closeChangeAvatarDialog = (callback: () => void) => {
     this.setState({
       changeAvatarDialog: {
         open: false
@@ -1189,7 +1189,7 @@ class App extends Component {
     });
   };
 
-  closeAddDisplayNameDialog = (callback) => {
+  closeAddDisplayNameDialog = (callback: () => void) => {
     this.setState({
       addDisplayNameDialog: {
         open: false
@@ -1209,7 +1209,7 @@ class App extends Component {
     });
   };
 
-  closeChangeDisplayNameDialog = (callback) => {
+  closeChangeDisplayNameDialog = (callback: () => void) => {
     this.setState({
       changeDisplayNameDialog: {
         open: false
@@ -1229,7 +1229,7 @@ class App extends Component {
     });
   };
 
-  closeAddEmailAddressDialog = (callback) => {
+  closeAddEmailAddressDialog = (callback: () => void) => {
     this.setState({
       addEmailAddressDialog: {
         open: false
@@ -1249,7 +1249,7 @@ class App extends Component {
     });
   };
 
-  closeSignOutDialog = (callback) => {
+  closeSignOutDialog = (callback: () => void) => {
     this.setState({
       signOutDialog: {
         open: false
@@ -1261,19 +1261,19 @@ class App extends Component {
     });
   };
 
-  handleAvatarChange = (event) => {
+  handleAvatarChange = (event: { target: { value: any; }; }) => {
     const avatar = event.target.value;
 
     this.setState({ avatar });
   };
 
-  handleDisplayNameChange = (event) => {
+  handleDisplayNameChange = (event: { target: { value: any; }; }) => {
     const displayName = event.target.value;
 
     this.setState({ displayName });
   };
 
-  handleEmailAddressChange = (event) => {
+  handleEmailAddressChange = (event: { target: { value: any; }; }) => {
     const emailAddress = event.target.value;
 
     this.setState({ emailAddress });
@@ -1282,7 +1282,7 @@ class App extends Component {
   /**
    * Opens a snackbar. Snackbars provide brief messages about app processes through a message.
    */
-  openSnackbar = (message) => {
+  openSnackbar = (message: string) => {
     this.setState({
       snackbar: {
         autoHideDuration: readingTime(message).time * 2,
