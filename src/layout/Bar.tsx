@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, MouseEventHandler} from 'react';
 
 import PropTypes from 'prop-types';
 
@@ -21,8 +21,15 @@ const styles = (theme: Theme) => ({
   }
 });
 
-class Bar extends Component {
-  constructor(props) {
+interface BarProps {
+  onSettingsClick: MouseEventHandler;
+  onSignOutClick: MouseEventHandler;
+  onSignUpClick: MouseEventHandler; 
+  onSignInClick: MouseEventHandler;
+}
+
+class Bar extends Component<BarProps> {
+  constructor(props: BarProps) {
     super(props);
 
     this.state = {
@@ -32,7 +39,7 @@ class Bar extends Component {
     };
   }
 
-  openMenu = (event) => {
+  openMenu: MouseEventHandler = (event) => {
     const anchorEl = event.currentTarget;
 
     this.setState({
@@ -50,14 +57,14 @@ class Bar extends Component {
     });
   };
 
-  handleSettingsClick = () => {
+  handleSettingsClick:MouseEventHandler = (e) => {
     this.closeMenu();
-    this.props.onSettingsClick();
+    this.props.onSettingsClick(e);
   };
 
-  handleSignOutClick = () => {
+  handleSignOutClick:MouseEventHandler = (e) => {
     this.closeMenu();
-    this.props.onSignOutClick();
+    this.props.onSignOutClick(e);
   };
 
   render() {
@@ -102,15 +109,15 @@ class Bar extends Component {
   }
 }
 
-Bar.propTypes = {
-  classes: PropTypes.object.isRequired,
+// Bar.propTypes = {
+//   classes: PropTypes.object.isRequired,
   
-  name: PropTypes.string.isRequired,
-  isPerformingAuthAction: PropTypes.bool.isRequired,
-  isSignedIn: PropTypes.bool.isRequired,
+//   name: PropTypes.string.isRequired,
+//   isPerformingAuthAction: PropTypes.bool.isRequired,
+//   isSignedIn: PropTypes.bool.isRequired,
 
-  onSettingsClick: PropTypes.func.isRequired,
-  onSignOutClick: PropTypes.func.isRequired
-};
+//   onSettingsClick: PropTypes.func.isRequired,
+//   onSignOutClick: PropTypes.func.isRequired
+// };
 
 export default withStyles(styles)(Bar);
