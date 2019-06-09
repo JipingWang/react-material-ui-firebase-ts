@@ -2,7 +2,7 @@ import React, { Component, MouseEventHandler} from 'react';
 
 import PropTypes from 'prop-types';
 
-import { withStyles, Theme } from '@material-ui/core/styles';
+import { withStyles, Theme, WithStyles } from '@material-ui/core/styles';
 
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -21,7 +21,7 @@ const styles = (theme: Theme) => ({
   }
 });
 
-interface BarProps {
+interface BarProps extends WithStyles {
   onSettingsClick: MouseEventHandler;
   onSignOutClick: MouseEventHandler;
   onSignUpClick: MouseEventHandler; 
