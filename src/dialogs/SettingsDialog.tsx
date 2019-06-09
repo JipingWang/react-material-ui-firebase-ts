@@ -13,6 +13,8 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Button from '@material-ui/core/Button';
 import Hidden from '@material-ui/core/Hidden';
+import {SelectInputProps} from '@material-ui/core/Select/SelectInput'
+import {SelectProps} from '@material-ui/core/Select/Select'
 
 import SwipeableViews from 'react-swipeable-views';
 
@@ -48,9 +50,9 @@ interface Props  extends WithStyles{
   onChangeDisplayNameClick: MouseEventHandler;
   onAddEmailAddressClick: MouseEventHandler;
   onVerifyEmailAddressClick: MouseEventHandler;
-  onPrimaryColorChange: PropTypes.func.isRequired,
-  onSecondaryColorChange: PropTypes.func.isRequired,
-  onTypeChange: PropTypes.func.isRequired,
+  onPrimaryColorChange: SelectInputProps["onChange"];
+  onSecondaryColorChange: SelectInputProps["onChange"];
+  onTypeChange: SelectProps["onChange"];
   onResetClick: MouseEventHandler;
 }
 class SettingsDialog extends Component {
