@@ -1120,7 +1120,7 @@ class App extends Component<{}, typeof state> {
     });
   };
 
-  closeWelcomeDialog = (callback: () => void) => {
+  closeWelcomeDialog = (callback?: () => void) => {
     this.setState({
       welcomeDialog: {
         open: false
