@@ -22,6 +22,7 @@ import AccountTab from '../tabs/settings/AccountTab';
 import AppearanceTab from '../tabs/settings/AppearanceTab';
 import { CommonColors } from '@material-ui/core/colors/common';
 import { PaletteType } from '@material-ui/core';
+import { ModalProps } from '@material-ui/core/Modal';
 
 const styles = (theme: Theme) => ({
   tabs: {
@@ -43,7 +44,7 @@ interface Props  extends WithStyles{
   secondaryColor: string;
   type: PaletteType;
 
-  onClose: (event: Event, reason: 'backdropClick' | 'escapeKeyDown')=>void;
+  onClose: ModalProps["onClose"];
   onAddAvatarClick: MouseEventHandler;
   onChangeAvatarClick: MouseEventHandler;
   onAddDisplayNameClick: MouseEventHandler;
@@ -55,8 +56,8 @@ interface Props  extends WithStyles{
   onTypeChange: SelectProps["onChange"];
   onResetClick: MouseEventHandler;
 }
-class SettingsDialog extends Component {
-  constructor(props) {
+class SettingsDialog extends Component<Props> {
+  constructor(props: Props) {
     super(props);
 
     this.state = {
@@ -71,8 +72,9 @@ class SettingsDialog extends Component {
       return;
     }
 
-    if (key === 'Enter') {
-      this.props.onClose();
+    if (key === 'Enter' && this.props.onClose) {
+      const reason: 'backdropClick' | 'escapeKeyDown' = 'escapeKeyDown'
+      this.props.onClose(event, reason);
     }
   };
 

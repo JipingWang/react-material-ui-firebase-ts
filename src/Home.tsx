@@ -1140,14 +1140,10 @@ class App extends Component<{}, typeof state> {
     });
   };
 
-  closeSettingsDialog = (callback: () => void) => {
+  closeSettingsDialog = (event: KeyboardEvent) => {
     this.setState({
       settingsDialog: {
         open: false
-      }
-    }, () => {
-      if (callback && typeof callback === 'function') {
-        callback();
       }
     });
   };
