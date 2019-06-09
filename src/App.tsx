@@ -1570,7 +1570,7 @@ class App extends Component<{}, typeof state> {
                             helperText={(changeAvatarDialog.errors && changeAvatarDialog.errors.avatar) ? changeAvatarDialog.errors.avatar[0] : ''}
                             margin="normal"
                             onChange={this.handleAvatarChange}
-                            placeholder={user.photoURL}
+                            placeholder={user.photoURL || undefined}
                             required
                             type="url"
                             value={avatar}
