@@ -10,7 +10,7 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import Avatar from '@material-ui/core/Avatar';
-import Menu from '@material-ui/core/Menu';
+import Menu, { MenuProps } from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 
 import PersonIcon from '@material-ui/icons/Person';
@@ -31,15 +31,21 @@ interface BarProps extends WithStyles {
   onSignUpClick: MouseEventHandler; 
   onSignInClick: MouseEventHandler;
 }
+interface BarState {
+  menu: Partial<MenuProps>
+}
 
-class Bar extends Component<BarProps> {
+const initStateMenu: Partial<MenuProps> = {
+  anchorEl: null
+}
+
+class Bar extends Component<BarProps, BarState> {
+  
   constructor(props: BarProps) {
     super(props);
 
     this.state = {
-      menu: {
-        anchorEl: null
-      }
+      menu: initStateMenu
     };
   }
 
