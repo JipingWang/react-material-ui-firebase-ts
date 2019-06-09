@@ -95,9 +95,8 @@ class WelcomeDialog extends Component<Props> {
       </Dialog>
     );
   }
-}
 
-WelcomeDialog.propTypes = {
+static propTypes = {
   classes: PropTypes.object.isRequired,
 
   fullScreen: PropTypes.bool,
@@ -112,6 +111,7 @@ WelcomeDialog.propTypes = {
   onCancelClick: PropTypes.func.isRequired,
   onVerifyClick: PropTypes.func.isRequired
 };
+}
 
 interface Props {
   classes: object;
