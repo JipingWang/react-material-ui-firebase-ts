@@ -28,8 +28,15 @@ const styles = (theme) => ({
     marginRight: theme.spacing(1)
   }
 });
-
-class HomeContent extends Component {
+interface Props{
+  classes: string;
+  isSignedIn: boolean;
+  title: string;
+}
+class HomeContent extends Component<Props> {
+  constructor(readonly props: Props) {
+    super(props);
+  }
   render() {
     // Styling
     const { classes } = this.props;
