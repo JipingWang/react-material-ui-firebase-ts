@@ -1312,6 +1312,7 @@ class App extends Component<{}, typeof state> {
 
     this.setState({
       snackbar: {
+        ...this.state.snackbar,
         message: clearMessage ? '' : snackbar.message,
         open: false
       }
