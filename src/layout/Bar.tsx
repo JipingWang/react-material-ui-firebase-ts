@@ -22,6 +22,10 @@ const styles = (theme: Theme) => ({
 });
 
 interface BarProps extends WithStyles {
+  name: string;
+  isPerformingAuthAction : boolean;
+  isSignedIn: boolean;
+  user: firebase.User;
   onSettingsClick: MouseEventHandler;
   onSignOutClick: MouseEventHandler;
   onSignUpClick: MouseEventHandler; 
