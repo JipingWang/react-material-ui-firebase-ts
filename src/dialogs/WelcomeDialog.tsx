@@ -2,7 +2,7 @@ import React, { Component, KeyboardEventHandler, MouseEventHandler } from 'react
 
 import PropTypes from 'prop-types';
 
-import { withStyles, Theme } from '@material-ui/core/styles';
+import { withStyles, Theme, WithStyles } from '@material-ui/core/styles';
 
 import Dialog from '@material-ui/core/Dialog';
 import DialogTitle from '@material-ui/core/DialogTitle';
@@ -113,8 +113,8 @@ class WelcomeDialog extends Component<Props> {
   };
 }
 
-interface Props {
-  classes: object;
+interface Props extends WithStyles {
+  //classes: object;
 
   fullScreen?: boolean;
   open: boolean;
