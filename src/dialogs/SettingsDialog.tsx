@@ -207,9 +207,8 @@ class SettingsDialog extends Component {
       </Dialog>
     );
   }
-}
 
-SettingsDialog.propTypes = {
+static propTypes = {
   classes: PropTypes.object.isRequired,
 
   fullScreen: PropTypes.bool,
@@ -236,5 +235,6 @@ SettingsDialog.propTypes = {
   onTypeChange: PropTypes.func.isRequired,
   onResetClick: PropTypes.func.isRequired
 };
+}
 
 export default withStyles(styles)(SettingsDialog);
