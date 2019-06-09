@@ -1392,9 +1392,9 @@ class App extends Component<{}, typeof state> {
                         user={user}
                         isPerformingAuthAction={isPerformingAuthAction}
 
-                        onClose={this.closeWelcomeDialog}
+                        onClose={()=>{this.closeWelcomeDialog}}
 
-                        onCancelClick={this.closeWelcomeDialog}
+                        onCancelClick={()=>{ this.closeWelcomeDialog}}
                         onVerifyClick={() => {
                           this.verifyEmailAddress(() => {
                             this.closeWelcomeDialog()
@@ -1412,9 +1412,9 @@ class App extends Component<{}, typeof state> {
                         user={user}
                         isPerformingAuthAction={isPerformingAuthAction}
 
-                        onClose={this.closeWelcomeDialog}
+                        onClose={()=>{this.closeWelcomeDialog}}
 
-                        onCancelClick={this.closeWelcomeDialog}
+                        onCancelClick={()=>{this.closeWelcomeDialog}}
                         onVerifyClick={() => {
                           this.verifyEmailAddress(() => {
                             this.closeWelcomeDialog()

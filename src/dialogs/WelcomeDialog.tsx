@@ -1,4 +1,4 @@
-import React, { Component, UIEventHandler, KeyboardEventHandler } from 'react';
+import React, { Component, KeyboardEventHandler, MouseEventHandler } from 'react';
 
 import PropTypes from 'prop-types';
 
@@ -123,11 +123,11 @@ interface Props {
   user: firebase.User;
   isPerformingAuthAction: boolean;
 
-  onClose: UIEventHandler;
+  onClose: MouseEventHandler;
 
-  onCancelClick: UIEventHandler;
-  onVerifyClick: UIEventHandler;
-  onOkClick: KeyboardEventHandler;
+  onCancelClick: MouseEventHandler;
+  onVerifyClick: MouseEventHandler;
+  onOkClick?: KeyboardEventHandler;
 };
 
 export default withStyles(styles)(WelcomeDialog);
