@@ -983,7 +983,9 @@ class App extends Component<{}, typeof state> {
 
     theme = createMuiTheme({
       palette: {
+        //@ts-ignore
         primary: colors.find(color => color.id === palette.primaryColor).import,
+        //@ts-ignore
         secondary: colors.find(color => color.id === palette.secondaryColor).import,
         type: palette.type
       }
