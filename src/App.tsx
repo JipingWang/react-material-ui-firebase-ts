@@ -52,6 +52,7 @@ import InputDialog from './dialogs/InputDialog';
 import ConfirmationDialog from './dialogs/ConfirmationDialog';
 import { PaletteOptions } from '@material-ui/core/styles/createPalette';
 import { PaletteType } from '@material-ui/core';
+import { Color } from 'csstype';
 
 /**
  * Firebase
@@ -183,7 +184,7 @@ const types = [
 
 const defaultTheme = {
   primaryColor: 'blue',
-  secondaryColor: 'red',
+  secondaryColor: 'red' as Color,
   type: 'light' as PaletteType
 };
 
@@ -309,6 +310,8 @@ const constraints = {
   },
 };
 
+interface DialogState {open: boolean; errors?: any;}
+
 const state = {
   primaryColor: defaultTheme.primaryColor,
   secondaryColor: defaultTheme.secondaryColor,
@@ -348,35 +351,35 @@ const state = {
     open: false,
 
     errors: null
-  },
+  } as DialogState,
 
   changeAvatarDialog: {
     open: false,
 
     errors: null
-  },
+  } as DialogState,
 
   addDisplayNameDialog: {
     open: false,
 
     errors: null
-  },
+  } as DialogState,
 
   changeDisplayNameDialog: {
     open: false,
 
     errors: null
-  },
+  } as DialogState,
 
   addEmailAddressDialog: {
     open: false,
 
     errors: null
-  },
+  } as DialogState,
 
   signOutDialog: {
     open: false
-  },
+  } as DialogState,
 
   snackbar: {
     autoHideDuration: 0,
@@ -966,7 +969,7 @@ class App extends Component<{}, typeof state> {
    * @param removeLocalStorage
    * @param callback
    */
-  updateTheme = (palette: typeof defaultTheme, removeLocalStorage?: any, callback?: () => void) => {
+  updateTheme = (palette: Partial<typeof defaultTheme>, removeLocalStorage?: any, callback?: () => void) => {
     const { primaryColor, secondaryColor, type } = this.state;
 
     if (!palette.primaryColor) {
@@ -1152,7 +1155,7 @@ class App extends Component<{}, typeof state> {
   openAddAvatarDialog = () => {
     this.setState({
       addAvatarDialog: {
-        open: true
+        open: true, errors: null,
       }
     });
   };
