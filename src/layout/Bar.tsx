@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import PropTypes from 'prop-types';
 
-import { withStyles } from '@material-ui/core/styles';
+import { withStyles, Theme } from '@material-ui/core/styles';
 
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -15,7 +15,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 
 import PersonIcon from '@material-ui/icons/Person';
 
-const styles = (theme) => ({
+const styles = (theme: Theme) => ({
   signUpButton: {
     marginRight: theme.spacing(1)
   }
