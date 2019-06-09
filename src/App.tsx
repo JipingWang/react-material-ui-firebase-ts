@@ -1026,7 +1026,7 @@ class App extends Component<{}, typeof state> {
   };
 
   changePrimaryColor = (event: { target: { value: any; }; }) => {
-    const primaryColor = event.target.value;
+    const primaryColor:string = event.target.value;
 
     this.updateTheme({
       primaryColor
