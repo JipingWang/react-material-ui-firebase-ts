@@ -2,7 +2,7 @@ import React, { Component, KeyboardEventHandler, MouseEventHandler } from 'react
 
 import PropTypes from 'prop-types';
 
-import { withStyles } from '@material-ui/core/styles';
+import { withStyles, Theme } from '@material-ui/core/styles';
 
 import Dialog from '@material-ui/core/Dialog';
 import DialogTitle from '@material-ui/core/DialogTitle';
@@ -15,7 +15,7 @@ import Button from '@material-ui/core/Button';
 
 import Profile from '../layout/Profile';
 
-const styles = (theme) => ({
+const styles = (theme: Theme) => ({
   title: {
     marginTop: theme.spacing(3)
   },
@@ -35,7 +35,7 @@ class WelcomeDialog extends Component<Props> {
       return;
     }
 
-    if (key === 'Enter') {
+    if (key === 'Enter' && this.props.onOkClick) {
       this.props.onOkClick(event);
     }
   };
