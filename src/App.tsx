@@ -1351,7 +1351,7 @@ class App extends Component<{}, typeof state> {
     } = this.state;
 
     const { snackbar } = this.state;
-
+    if(!user){throw 'invalid';}
     return (
       <Router basename="/react-material-ui-firebase">
         <MuiThemeProvider theme={theme}>
