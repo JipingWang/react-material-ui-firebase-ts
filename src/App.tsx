@@ -966,7 +966,7 @@ class App extends Component<{}, typeof state> {
    * @param removeLocalStorage
    * @param callback
    */
-  updateTheme = (palette: typeof defaultTheme, removeLocalStorage: any, callback: () => void) => {
+  updateTheme = (palette: typeof defaultTheme, removeLocalStorage?: any, callback?: () => void) => {
     const { primaryColor, secondaryColor, type } = this.state;
 
     if (!palette.primaryColor) {
