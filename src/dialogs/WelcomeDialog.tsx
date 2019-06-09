@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, UIEventHandler, KeyboardEventHandler } from 'react';
 
 import PropTypes from 'prop-types';
 
@@ -25,8 +25,10 @@ const styles = (theme) => ({
   }
 });
 
-class WelcomeDialog extends Component {
-  handleKeyPress = (event) => {
+class WelcomeDialog extends Component<Props> {
+  handleKeyPress: KeyboardEventHandler = () => {
+    const event = globalThis.event as unknown as React.KeyboardEvent<Element>;
+    if(!event){throw 'invalid';}
     const key = event.key;
 
     if (event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) {
@@ -34,7 +36,7 @@ class WelcomeDialog extends Component {
     }
 
     if (key === 'Enter') {
-      this.props.onOkClick();
+      this.props.onOkClick(event);
     }
   };
 
@@ -109,6 +111,23 @@ WelcomeDialog.propTypes = {
 
   onCancelClick: PropTypes.func.isRequired,
   onVerifyClick: PropTypes.func.isRequired
+};
+
+interface Props {
+  classes: object;
+
+  fullScreen?: boolean;
+  open: boolean;
+
+  title: string;
+  user: firebase.User;
+  isPerformingAuthAction: boolean;
+
+  onClose: UIEventHandler;
+
+  onCancelClick: UIEventHandler;
+  onVerifyClick: UIEventHandler;
+  onOkClick: KeyboardEventHandler;
 };
 
 export default withStyles(styles)(WelcomeDialog);

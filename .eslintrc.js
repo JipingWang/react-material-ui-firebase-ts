@@ -26,6 +26,7 @@ module.exports = {
         "sourceType": "module"
     },
     "plugins": [
+        "babel",
         "react",
         "@typescript-eslint",
         "react-hooks",
