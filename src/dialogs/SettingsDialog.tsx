@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React, { Component, KeyboardEvent, ChangeEvent, MouseEventHandler } from 'react';
 
 import PropTypes from 'prop-types';
 
-import { withStyles } from '@material-ui/core/styles';
+import { withStyles, Theme, WithStyles } from '@material-ui/core/styles';
 
 import Dialog from '@material-ui/core/Dialog';
 import DialogTitle from '@material-ui/core/DialogTitle';
@@ -18,13 +18,41 @@ import SwipeableViews from 'react-swipeable-views';
 
 import AccountTab from '../tabs/settings/AccountTab';
 import AppearanceTab from '../tabs/settings/AppearanceTab';
+import { CommonColors } from '@material-ui/core/colors/common';
+import { PaletteType } from '@material-ui/core';
 
-const styles = (theme) => ({
+const styles = (theme: Theme) => ({
   tabs: {
     marginBottom: theme.spacing(1)
   }
 });
+interface Props  extends WithStyles{
+  //classes: PropTypes.object.isRequired,
 
+  fullScreen?: boolean;
+  open: boolean;
+
+  user: firebase.User;
+  isPerformingAuthAction: boolean;
+  isVerifyingEmailAddress: boolean;
+  colors: CommonColors;
+  types: keyof PaletteType;
+  primaryColor: string;
+  secondaryColor: string;
+  type: PaletteType;
+
+  onClose: (event: Event, reason: 'backdropClick' | 'escapeKeyDown')=>void;
+  onAddAvatarClick: MouseEventHandler;
+  onChangeAvatarClick: MouseEventHandler;
+  onAddDisplayNameClick: MouseEventHandler;
+  onChangeDisplayNameClick: MouseEventHandler;
+  onAddEmailAddressClick: MouseEventHandler;
+  onVerifyEmailAddressClick: MouseEventHandler;
+  onPrimaryColorChange: PropTypes.func.isRequired,
+  onSecondaryColorChange: PropTypes.func.isRequired,
+  onTypeChange: PropTypes.func.isRequired,
+  onResetClick: MouseEventHandler;
+}
 class SettingsDialog extends Component {
   constructor(props) {
     super(props);
@@ -34,7 +62,7 @@ class SettingsDialog extends Component {
     };
   }
 
-  handleKeyPress = (event) => {
+  handleKeyPress = (event: KeyboardEvent) => {
     const key = event.key;
 
     if (event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) {
@@ -46,7 +74,7 @@ class SettingsDialog extends Component {
     }
   };
 
-  changeTab = (event, value) => {
+  changeTab = (event: ChangeEvent, value:any) => {
     this.setState({
       selectedTab: value
     });
