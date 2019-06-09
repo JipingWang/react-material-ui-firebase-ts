@@ -28,7 +28,7 @@ const styles = (theme: Theme) => ({
 class WelcomeDialog extends Component<Props> {
   handleKeyPress: KeyboardEventHandler = () => {
     const event = globalThis.event as unknown as React.KeyboardEvent<Element>;
-    if(!event){throw 'invalid';}
+    if (!event) { throw 'invalid'; }
     const key = event.key;
 
     if (event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) {
@@ -96,21 +96,21 @@ class WelcomeDialog extends Component<Props> {
     );
   }
 
-static propTypes = {
-  classes: PropTypes.object.isRequired,
+  static propTypes = {
+    classes: PropTypes.object.isRequired,
 
-  fullScreen: PropTypes.bool,
-  open: PropTypes.bool.isRequired,
+    fullScreen: PropTypes.bool,
+    open: PropTypes.bool.isRequired,
 
-  title: PropTypes.string.isRequired,
-  user: PropTypes.object.isRequired,
-  isPerformingAuthAction: PropTypes.bool.isRequired,
+    title: PropTypes.string.isRequired,
+    user: PropTypes.object.isRequired,
+    isPerformingAuthAction: PropTypes.bool.isRequired,
 
-  onClose: PropTypes.func.isRequired,
+    onClose: PropTypes.func.isRequired,
 
-  onCancelClick: PropTypes.func.isRequired,
-  onVerifyClick: PropTypes.func.isRequired
-};
+    onCancelClick: PropTypes.func.isRequired,
+    onVerifyClick: PropTypes.func.isRequired
+  };
 }
 
 interface Props {

@@ -310,7 +310,7 @@ const constraints = {
   },
 };
 
-interface DialogState {open: boolean; errors?: any;}
+interface DialogState { open: boolean; errors?: any; }
 
 const state = {
   primaryColor: defaultTheme.primaryColor,
@@ -395,7 +395,7 @@ class App extends Component<{}, typeof state> {
     super(props);
   }
 
-  
+
 
   /**
    * Creates a new user account associated with the specified email address and password.
@@ -481,7 +481,7 @@ class App extends Component<{}, typeof state> {
     }, () => {
       auth.signInWithEmailAndPassword(emailAddress, password).then((value) => {
         this.closeSignInDialog(() => {
-          if(!value.user){throw 'invalid';}
+          if (!value.user) { throw 'invalid'; }
           const user = value.user;
           const displayName = user.displayName;
           const emailAddress = user.email;
@@ -531,7 +531,7 @@ class App extends Component<{}, typeof state> {
       auth.signInWithPopup(provider).then((value) => {
         this.closeSignUpDialog(() => {
           this.closeSignInDialog(() => {
-            if(!value.user){throw 'invalid';}
+            if (!value.user) { throw 'invalid'; }
             const user = value.user;
             const displayName = user.displayName;
             const emailAddress = user.email;
@@ -1029,7 +1029,7 @@ class App extends Component<{}, typeof state> {
   };
 
   changePrimaryColor = (event: { target: { value: any; }; }) => {
-    const primaryColor:string = event.target.value;
+    const primaryColor: string = event.target.value;
 
     this.updateTheme({
       primaryColor
@@ -1351,7 +1351,7 @@ class App extends Component<{}, typeof state> {
     } = this.state;
 
     const { snackbar } = this.state;
-    if(!user){throw 'invalid';}
+    if (!user) { throw 'invalid'; }
     return (
       <Router basename="/react-material-ui-firebase">
         <MuiThemeProvider theme={theme}>
@@ -1392,9 +1392,9 @@ class App extends Component<{}, typeof state> {
                         user={user}
                         isPerformingAuthAction={isPerformingAuthAction}
 
-                        onClose={()=>{this.closeWelcomeDialog}}
+                        onClose={() => { this.closeWelcomeDialog }}
 
-                        onCancelClick={()=>{ this.closeWelcomeDialog}}
+                        onCancelClick={() => { this.closeWelcomeDialog }}
                         onVerifyClick={() => {
                           this.verifyEmailAddress(() => {
                             this.closeWelcomeDialog()
@@ -1412,9 +1412,9 @@ class App extends Component<{}, typeof state> {
                         user={user}
                         isPerformingAuthAction={isPerformingAuthAction}
 
-                        onClose={()=>{this.closeWelcomeDialog}}
+                        onClose={() => { this.closeWelcomeDialog }}
 
-                        onCancelClick={()=>{this.closeWelcomeDialog}}
+                        onCancelClick={() => { this.closeWelcomeDialog }}
                         onVerifyClick={() => {
                           this.verifyEmailAddress(() => {
                             this.closeWelcomeDialog()
