@@ -11,7 +11,7 @@ const theme = createMuiTheme()
 
 export const App = () => {
   const [signedIn, setSignedIn] = useState(false)
-  const win = signedIn? <Home /> : <Login/>;
+  const win = signedIn ? <Home /> : <Login />;
 
   return (
     <MuiThemeProvider theme={theme}>

@@ -13,8 +13,8 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Button from '@material-ui/core/Button';
 import Hidden from '@material-ui/core/Hidden';
-import {SelectInputProps} from '@material-ui/core/Select/SelectInput'
-import {SelectProps} from '@material-ui/core/Select/Select'
+import { SelectInputProps } from '@material-ui/core/Select/SelectInput'
+import { SelectProps } from '@material-ui/core/Select/Select'
 
 import SwipeableViews, { OnChangeIndexCallback } from 'react-swipeable-views';
 
@@ -23,13 +23,13 @@ import AppearanceTab from '../tabs/settings/AppearanceTab';
 import { CommonColors } from '@material-ui/core/colors/common';
 import { PaletteType } from '@material-ui/core';
 import { ModalProps } from '@material-ui/core/Modal';
-import {OnTabChange} from '../types'
+import { OnTabChange } from '../types'
 const styles = (theme: Theme) => ({
   tabs: {
     marginBottom: theme.spacing(1)
   }
 });
-interface Props  extends WithStyles{
+interface Props extends WithStyles {
   //classes: PropTypes.object.isRequired,
 
   fullScreen?: boolean;
@@ -38,7 +38,7 @@ interface Props  extends WithStyles{
   user: firebase.User;
   isPerformingAuthAction: boolean;
   isVerifyingEmailAddress: boolean;
-  colors: CommonColors;
+  colors: string[];
   types: keyof PaletteType;
   primaryColor: string;
   secondaryColor: string;
@@ -56,7 +56,7 @@ interface Props  extends WithStyles{
   onTypeChange: SelectProps["onChange"];
   onResetClick: MouseEventHandler;
 }
-interface State{
+interface State {
   selectedTab: number;
 }
 
@@ -83,7 +83,7 @@ class SettingsDialog extends Component<Props, State> {
     }
   };
 
-  changeTab: OnTabChange = (event: React.ChangeEvent<{}>, value:any) => {
+  changeTab: OnTabChange = (event: React.ChangeEvent<{}>, value: any) => {
     this.setState({
       selectedTab: value
     });
