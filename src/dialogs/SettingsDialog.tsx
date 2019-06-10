@@ -23,7 +23,7 @@ import AppearanceTab from '../tabs/settings/AppearanceTab';
 import { CommonColors } from '@material-ui/core/colors/common';
 import { PaletteType } from '@material-ui/core';
 import { ModalProps } from '@material-ui/core/Modal';
-
+import {OnTabChange} from '../types'
 const styles = (theme: Theme) => ({
   tabs: {
     marginBottom: theme.spacing(1)
@@ -83,7 +83,7 @@ class SettingsDialog extends Component<Props, State> {
     }
   };
 
-  changeTab = (event: ChangeEvent, value:any) => {
+  changeTab: OnTabChange = (event: React.ChangeEvent<{}>, value:any) => {
     this.setState({
       selectedTab: value
     });

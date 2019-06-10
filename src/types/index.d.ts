@@ -1,0 +1,1 @@
+export type OnTabChange = (event: React.ChangeEvent<{}>, value: any) => void
