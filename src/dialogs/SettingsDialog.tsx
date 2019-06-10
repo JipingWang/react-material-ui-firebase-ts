@@ -16,7 +16,7 @@ import Hidden from '@material-ui/core/Hidden';
 import {SelectInputProps} from '@material-ui/core/Select/SelectInput'
 import {SelectProps} from '@material-ui/core/Select/Select'
 
-import SwipeableViews from 'react-swipeable-views';
+import SwipeableViews, { OnChangeIndexCallback } from 'react-swipeable-views';
 
 import AccountTab from '../tabs/settings/AccountTab';
 import AppearanceTab from '../tabs/settings/AppearanceTab';
@@ -85,7 +85,7 @@ class SettingsDialog extends Component<Props> {
     });
   };
 
-  changeIndex = (index) => {
+  changeIndex: OnChangeIndexCallback = (index) => {
     this.setState({
       selectedTab: index
     });
