@@ -44,7 +44,7 @@ interface Props  extends WithStyles{
   secondaryColor: string;
   type: PaletteType;
   defaultTheme: any,
-  onClose: ModalProps["onClose"];
+  onClose: MouseEventHandler; // ModalProps["onClose"];
   onAddAvatarClick: MouseEventHandler;
   onChangeAvatarClick: MouseEventHandler;
   onAddDisplayNameClick: MouseEventHandler;
