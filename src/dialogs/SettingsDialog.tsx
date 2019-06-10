@@ -245,33 +245,33 @@ class SettingsDialog extends Component<Props, State> {
     );
   }
 
-  static propTypes = {
-    classes: PropTypes.object.isRequired,
+  // static propTypes = {
+  //   classes: PropTypes.object.isRequired,
 
-    fullScreen: PropTypes.bool,
-    open: PropTypes.bool.isRequired,
+  //   fullScreen: PropTypes.bool,
+  //   open: PropTypes.bool.isRequired,
 
-    user: PropTypes.object.isRequired,
-    isPerformingAuthAction: PropTypes.bool.isRequired,
-    isVerifyingEmailAddress: PropTypes.bool.isRequired,
-    colors: PropTypes.array.isRequired,
-    types: PropTypes.array.isRequired,
-    primaryColor: PropTypes.string.isRequired,
-    secondaryColor: PropTypes.string.isRequired,
-    type: PropTypes.string.isRequired,
+  //   user: PropTypes.object.isRequired,
+  //   isPerformingAuthAction: PropTypes.bool.isRequired,
+  //   isVerifyingEmailAddress: PropTypes.bool.isRequired,
+  //   colors: PropTypes.array.isRequired,
+  //   types: PropTypes.array.isRequired,
+  //   primaryColor: PropTypes.string.isRequired,
+  //   secondaryColor: PropTypes.string.isRequired,
+  //   type: PropTypes.string.isRequired,
 
-    onClose: PropTypes.func.isRequired,
-    onAddAvatarClick: PropTypes.func.isRequired,
-    onChangeAvatarClick: PropTypes.func.isRequired,
-    onAddDisplayNameClick: PropTypes.func.isRequired,
-    onChangeDisplayNameClick: PropTypes.func.isRequired,
-    onAddEmailAddressClick: PropTypes.func.isRequired,
-    onVerifyEmailAddressClick: PropTypes.func.isRequired,
-    onPrimaryColorChange: PropTypes.func.isRequired,
-    onSecondaryColorChange: PropTypes.func.isRequired,
-    onTypeChange: PropTypes.func.isRequired,
-    onResetClick: PropTypes.func.isRequired
-  };
+  //   onClose: PropTypes.func.isRequired,
+  //   onAddAvatarClick: PropTypes.func.isRequired,
+  //   onChangeAvatarClick: PropTypes.func.isRequired,
+  //   onAddDisplayNameClick: PropTypes.func.isRequired,
+  //   onChangeDisplayNameClick: PropTypes.func.isRequired,
+  //   onAddEmailAddressClick: PropTypes.func.isRequired,
+  //   onVerifyEmailAddressClick: PropTypes.func.isRequired,
+  //   onPrimaryColorChange: PropTypes.func.isRequired,
+  //   onSecondaryColorChange: PropTypes.func.isRequired,
+  //   onTypeChange: PropTypes.func.isRequired,
+  //   onResetClick: PropTypes.func.isRequired
+  // };
 }
 
 export default withStyles(styles)(SettingsDialog);
