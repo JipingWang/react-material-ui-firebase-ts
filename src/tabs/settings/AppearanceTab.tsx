@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React, { Component, MouseEventHandler } from 'react';
 
 import PropTypes from 'prop-types';
 
 import { withStyles, Theme, WithStyles } from '@material-ui/core/styles';
-import { Color } from '@material-ui/core'
+import { Color, PaletteType } from '@material-ui/core'
 import DialogContentText from '@material-ui/core/DialogContentText';
 import FormControl from '@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel';
@@ -20,14 +20,14 @@ interface Props extends WithStyles {
   //classes: PropTypes.object.isRequired,
 
   colors: ColorType[];
-  types: PropTypes.array.isRequired,
-  primaryColor: PropTypes.string.isRequired,
-  secondaryColor: PropTypes.string.isRequired,
-  type: PropTypes.string.isRequired,
+  types: PaletteType[];
+  primaryColor: string;
+  secondaryColor: string;
+  type: PaletteType;
 
-  onPrimaryColorChange: PropTypes.func.isRequired,
-  onSecondaryColorChange: PropTypes.func.isRequired,
-  onTypeChange: PropTypes.func.isRequired
+  onPrimaryColorChange: MouseEventHandler;
+  onSecondaryColorChange: MouseEventHandler;
+  onTypeChange: MouseEventHandler;
 }
 class AppearanceTab extends Component<Props> {
   constructor(public props: Props) {
