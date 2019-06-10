@@ -43,7 +43,7 @@ interface Props  extends WithStyles{
   primaryColor: string;
   secondaryColor: string;
   type: PaletteType;
-
+  defaultTheme: any,
   onClose: ModalProps["onClose"];
   onAddAvatarClick: MouseEventHandler;
   onChangeAvatarClick: MouseEventHandler;
@@ -56,7 +56,11 @@ interface Props  extends WithStyles{
   onTypeChange: SelectProps["onChange"];
   onResetClick: MouseEventHandler;
 }
-class SettingsDialog extends Component<Props> {
+interface State{
+  selectedTab: number;
+}
+
+class SettingsDialog extends Component<Props, State> {
   constructor(props: Props) {
     super(props);
 
