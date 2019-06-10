@@ -73,8 +73,9 @@ class SettingsDialog extends Component<Props> {
     }
 
     if (key === 'Enter' && this.props.onClose) {
-      const reason: 'backdropClick' | 'escapeKeyDown' = 'escapeKeyDown'
-      this.props.onClose(event, reason);
+      // const reason: 'backdropClick' | 'escapeKeyDown' = 'escapeKeyDown'
+      // this.props.onClose(event, reason); //todo: technically unnecessary?
+      //todo: logically unnecessary, the parent controls the 'open' state // this.setState({open: false})
     }
   };
 
