@@ -2,21 +2,38 @@ import React, { Component } from 'react';
 
 import PropTypes from 'prop-types';
 
-import { withStyles } from '@material-ui/core/styles';
-
+import { withStyles, Theme, WithStyles } from '@material-ui/core/styles';
+import { Color } from '@material-ui/core'
 import DialogContentText from '@material-ui/core/DialogContentText';
 import FormControl from '@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
+import { ColorType } from '../../types/index';
 
-const styles = (theme) => ({
+const styles = (theme: Theme) => ({
   root: {
     marginBottom: theme.spacing(0)
   }
 });
+interface Props extends WithStyles {
+  //classes: PropTypes.object.isRequired,
 
-class AppearanceTab extends Component {
+  colors: ColorType[];
+  types: PropTypes.array.isRequired,
+  primaryColor: PropTypes.string.isRequired,
+  secondaryColor: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
+
+  onPrimaryColorChange: PropTypes.func.isRequired,
+  onSecondaryColorChange: PropTypes.func.isRequired,
+  onTypeChange: PropTypes.func.isRequired
+}
+class AppearanceTab extends Component<Props> {
+  constructor(public props: Props) {
+    super(props);
+
+  }
   render() {
     // Styling
     const { classes } = this.props;
@@ -68,18 +85,18 @@ class AppearanceTab extends Component {
   }
 }
 
-AppearanceTab.propTypes = {
-  classes: PropTypes.object.isRequired,
+// AppearanceTab.propTypes = {
+//   classes: PropTypes.object.isRequired,
 
-  colors: PropTypes.array.isRequired,
-  types: PropTypes.array.isRequired,
-  primaryColor: PropTypes.string.isRequired,
-  secondaryColor: PropTypes.string.isRequired,
-  type: PropTypes.string.isRequired,
+//   colors: PropTypes.array.isRequired,
+//   types: PropTypes.array.isRequired,
+//   primaryColor: PropTypes.string.isRequired,
+//   secondaryColor: PropTypes.string.isRequired,
+//   type: PropTypes.string.isRequired,
 
-  onPrimaryColorChange: PropTypes.func.isRequired,
-  onSecondaryColorChange: PropTypes.func.isRequired,
-  onTypeChange: PropTypes.func.isRequired
-};
+//   onPrimaryColorChange: PropTypes.func.isRequired,
+//   onSecondaryColorChange: PropTypes.func.isRequired,
+//   onTypeChange: PropTypes.func.isRequired
+// };
 
 export default withStyles(styles)(AppearanceTab);
