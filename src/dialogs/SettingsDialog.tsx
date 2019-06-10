@@ -24,6 +24,7 @@ import { CommonColors } from '@material-ui/core/colors/common';
 import { PaletteType } from '@material-ui/core';
 import { ModalProps } from '@material-ui/core/Modal';
 import { OnTabChange } from '../types'
+import { ColorType } from '../types/index';
 const styles = (theme: Theme) => ({
   tabs: {
     marginBottom: theme.spacing(1)
@@ -38,7 +39,7 @@ interface Props extends WithStyles {
   user: firebase.User;
   isPerformingAuthAction: boolean;
   isVerifyingEmailAddress: boolean;
-  colors: string[];
+  colors: ColorType[];
   types: keyof PaletteType;
   primaryColor: string;
   secondaryColor: string;

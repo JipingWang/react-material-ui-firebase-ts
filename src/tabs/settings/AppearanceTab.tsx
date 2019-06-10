@@ -7,7 +7,7 @@ import { Color, PaletteType } from '@material-ui/core'
 import DialogContentText from '@material-ui/core/DialogContentText';
 import FormControl from '@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel';
-import Select from '@material-ui/core/Select';
+import Select, { SelectProps } from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import { ColorType } from '../../types/index';
 
@@ -25,9 +25,9 @@ interface Props extends WithStyles {
   secondaryColor: string;
   type: PaletteType;
 
-  onPrimaryColorChange: MouseEventHandler;
-  onSecondaryColorChange: MouseEventHandler;
-  onTypeChange: MouseEventHandler;
+  onPrimaryColorChange: SelectProps['onChange'];
+  onSecondaryColorChange: SelectProps['onChange'];
+  onTypeChange: SelectProps['onChange'];
 }
 class AppearanceTab extends Component<Props> {
   constructor(public props: Props) {
